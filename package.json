@@ -4,11 +4,13 @@
   "description": "Project to lean Express and MongoDB",
   "main": "app.js",
   "scripts": {
-    "start": "NODE_ENV=development nodemon server.js",
+    "dev": "NODE_ENV=development nodemon server.js",
+    "start": "node server.js",
     "prod": "NODE_ENV=production nodemon server.js",
     "deleteDB": "node dev-data/data/import-dev-data.js --delete",
     "importDB": "node dev-data/data/import-dev-data.js --import",
-    "watch:js": "parcel watch --no-hmr ./public/js/index.js --out-dir ./public/js --out-file bundle.js"
+    "watch:js": "parcel watch --no-hmr ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
+    "build:js": "parcel build ./public/js/index.js --out-dir ./public/js --out-file bundle.js"
   },
   "author": "Claudio Meira",
   "license": "ISC",
@@ -16,6 +18,7 @@
     "@babel/polyfill": "^7.12.1",
     "axios": "^1.10.0",
     "bcryptjs": "^3.0.2",
+    "compression": "^1.8.1",
     "cookie-parser": "^1.4.7",
     "dotenv": "^16.5.0",
     "express": "^4.21.2",
@@ -46,5 +49,8 @@
     "eslint-plugin-react": "^7.37.5",
     "parcel-bundler": "^1.12.5",
     "prettier": "^3.5.3"
+  },
+  "engines": {
+    "node": ">=10.0.0"
   }
 }

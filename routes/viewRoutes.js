@@ -4,7 +4,8 @@ const {
   getTour,
   getLoginForm,
   getAccount,
-  updateUserData, getMyTours,
+  updateUserData,
+  getMyTours,
 } = require('../controllers/viewsController');
 const { isLoggedIn, protect } = require('../controllers/authController');
 const { createBookingCheckout } = require('../controllers/bookingController');

@@ -57,7 +57,6 @@ userSchema.pre('save', async function (next) {
     this.$__.saveOptions &&
     this.$__.saveOptions.validateBeforeSave === false
   ) {
-    console.log('Skipping password hashing for import');
   } else {
     // Hash the password with cost of 12
     this.password = await bcrypt.hash(this.password, 12);
@@ -109,8 +108,6 @@ userSchema.methods.createPasswordResetToken = function () {
     .createHash('sha256')
     .update(resetToken)
     .digest('hex');
-
-  console.log({ resetToken }, this.passwordResetToken);
 
   this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
 
